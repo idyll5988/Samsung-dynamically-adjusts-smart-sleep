@@ -1,5 +1,6 @@
 # Samsung-dynamically-adjusts-smart-sleep
 Samsung dynamically adjusts smart sleep
+![ABF509760F709EDB4766C07AD5C6CF8D](https://github.com/user-attachments/assets/e7a74bf6-e388-4455-a936-782d507424a7)
 
 Dynamically adjust the system power saving strategy - When the screen is on: turn off smart sleep + high performance mode When the screen is off: turn on smart sleep + power saving mode Battery < 20%: Force power saving (override screen status)
 
