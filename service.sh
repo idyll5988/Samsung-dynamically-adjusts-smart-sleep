@@ -11,7 +11,7 @@ until [[ $(getprop sys.boot_completed) -eq 1 || $(getprop dev.bootcomplete) -eq 
 sdcard_rw
                               
 [ ! "$MODDIR" ] && MODDIR=${0%/*}
-MODPATH="/data/adb/modules/UI"
+MODPATH="/data/adb/modules/Smart"
 [[ ! -e ${MODDIR}/scripts/ll/log ]] && mkdir -p ${MODDIR}/scripts/ll/log
 km1() {
 	echo -e "$@" >>优化.log
