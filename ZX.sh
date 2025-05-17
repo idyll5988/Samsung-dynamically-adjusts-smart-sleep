@@ -93,13 +93,13 @@ main_loop() {
     system_load=$(awk '{print $1}' /proc/loadavg)
     # 阶梯式配置
     if (( $(echo "$system_load >= 25" | bc) )); then
-        sleep_time=20  # 紧急负载状态延长间隔
+        sleep_time=20  
     elif (( $(echo "$system_load >= 15" | bc) )); then
-        sleep_time=15   # 高负载状态平衡响应
+        sleep_time=15   
     elif (( $(echo "$system_load >= 5" | bc) )); then
-        sleep_time=10    # 正常负载保持灵敏
+        sleep_time=10    
     else
-        sleep_time=5    # 空闲状态快速响应
+        sleep_time=25    
     fi
     sleep $sleep_time
     done
