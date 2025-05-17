@@ -14,7 +14,9 @@ Dynamically adjust the system power saving strategy - When the screen is on: tur
 
 ​电量<20%​​：强制省电（覆盖屏幕状态）
 
-添加变量跟踪当前状态，避免重复设置相同的值
+变量跟踪当前状态，避免重复设置相同的值
+
+根据系统负载动态调整休眠时间
 
 Core Logic​
 
@@ -26,4 +28,6 @@ When the screen is off: turn on smart sleep + power saving mode
 
 Power <20%​​: force power saving (override screen status)
 
-Add variables to track the current state to avoid repeatedly setting the same value
+variables to track the current state to avoid repeatedly setting the same value
+
+Dynamically adjust sleep time based on system load
