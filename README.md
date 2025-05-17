@@ -2,7 +2,6 @@
 Samsung dynamically adjusts smart sleep
 ![D6A12B06511F8AB5603F6CF919C5605D](https://github.com/user-attachments/assets/68a6ca3f-740f-47a1-80cd-882dc7a9a9b3)
 
-Dynamically adjust the system power saving strategy - When the screen is on: turn off smart sleep + high performance mode When the screen is off: turn on smart sleep + power saving mode Battery 
 ​核心逻辑​
 
 根据屏幕状态（亮屏/熄屏）及电量
