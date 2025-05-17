@@ -10,8 +10,6 @@ Samsung dynamically adjusts smart sleep
 
 ​熄屏时​：开启智能休眠+省电模式
 
-变量跟踪当前状态，避免重复设置相同的值
-
 根据系统负载动态调整休眠时间
 
 Core Logic​
@@ -19,8 +17,5 @@ Core Logic​
 When the screen is on: turn off smart sleep + high performance mode
 
 When the screen is off: turn on smart sleep + power saving mode
-
-
-variables to track the current state to avoid repeatedly setting the same value
 
 Dynamically adjust sleep time based on system load
