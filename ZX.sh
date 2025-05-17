@@ -2,7 +2,6 @@
 # 三星 S24 Ultra 骁龙8 Gen3 智能调优脚本 v2.0
 # 核心功能：亮屏 - 智能休眠关闭/熄屏 - 智能休眠开启 + 系统负载自适应
 [ ! "$MODDIR" ] && MODDIR=${0%/*}
-MODPATH="/data/adb/modules/A+™"
 LOG_DIR="${MODDIR}/ll/log"
 [[ ! -e ${LOG_DIR} ]] && mkdir -p "$LOG_DIR"
 LOG_FILE="${LOG_DIR}/智能.log"
