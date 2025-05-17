@@ -90,7 +90,17 @@ main_loop() {
             fi
         fi
         
-        sleep 30
+    # 获取系统负载
+    system_load=$(awk '{print $1}' /proc/loadavg)
+    # 根据系统负载动态调整暂停时间
+    if (( $(echo "$system_load > 5.0" | bc -l) )); then
+        sleep_time=5
+    elif (( $(echo "$system_load > 1.0" | bc -l) )); then
+        sleep_time=10
+    else
+        sleep_time=20
+    fi
+    sleep $sleep_time
     done
 }
 
