@@ -12,6 +12,7 @@ sdcard_rw
                               
 [ ! "$MODDIR" ] && MODDIR=${0%/*}
 MODPATH="/data/adb/modules/Smart"
+source "${MODPATH}/scripts/GK.sh"
 [[ ! -e ${MODDIR}/scripts/ll/log ]] && mkdir -p ${MODDIR}/scripts/ll/log
 km1() {
 	echo -e "$@" >>优化.log
@@ -40,7 +41,7 @@ if [[ -d ${MODDIR}/scripts ]]; then
                 echo "$(date "+%Y年%m月%d日%H时%M分%S秒") *无法设置权限: ${script}*" >>优化.log
                 continue
             }
-            nice -n 19 ionice -c 2 -n 7 su -c "nohup \"${i}\" &" &
+            $su_write "nohup \"${i}\" &" &
             while [ $(jobs | wc -l) -ge "${thread}" ]; do
                 sleep 1
             done

@@ -5,8 +5,9 @@
 LOG_DIR="${MODDIR}/ll/log"
 [[ ! -e ${LOG_DIR} ]] && mkdir -p "$LOG_DIR"
 LOG_FILE="${LOG_DIR}/智能.log"
+source "${MODPATH}/scripts/GK.sh"
 MAX_LOG_SIZE=1048576  
-su -c renice -n 10 $$
+$su_write renice -n 10 $$
 
 # 错误日志记录函数
 log_error() {
@@ -30,14 +31,14 @@ main_loop() {
         screen_status=$(dumpsys window | grep "mScreenOn" | grep true)
         
         if [[ "${screen_status}" ]]; then
-            su -c "cmd settings put system intelligent_sleep_mode 0" || log_error "关闭intelligent_sleep_mode失败"
-            su -c "cmd settings put global adaptive_battery_management 0" || log_error "关闭adaptive_battery_management失败"
-            su -c "resetprop -n persist.sys.power.tweak_mode high" || log_error "设置高性能模式失败"
+            $su_write "cmd settings put system intelligent_sleep_mode 0" || log_error "关闭intelligent_sleep_mode失败"
+            $su_write "cmd settings put global adaptive_battery_management 0" || log_error "关闭adaptive_battery_management失败"
+            $su_write "resetprop -n persist.sys.power.tweak_mode high" || log_error "设置高性能模式失败"
             echo "$(date '+%Y年%m月%d日%H时%M分%S秒') 📲 亮屏 - 智能休眠关闭 - 性能" >> "$LOG_FILE"
         else
-            su -c "cmd settings put system intelligent_sleep_mode 1" || log_error "启用intelligent_sleep_mode失败"
-            su -c "cmd settings put global adaptive_battery_management 1" || log_error "启用adaptive_battery_management失败"
-            su -c "resetprop -n persist.sys.power.tweak_mode saver" || log_error "设置省电模式失败"
+            $su_write "cmd settings put system intelligent_sleep_mode 1" || log_error "启用intelligent_sleep_mode失败"
+            $su_write "cmd settings put global adaptive_battery_management 1" || log_error "启用adaptive_battery_management失败"
+            $su_write "resetprop -n persist.sys.power.tweak_mode saver" || log_error "设置省电模式失败"
             echo "$(date '+%Y年%m月%d日%H时%M分%S秒') 💤 熄屏 - 智能休眠开启 - 省电" >> "$LOG_FILE"
         fi  
     # 获取系统负载
